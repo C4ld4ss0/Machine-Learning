@@ -6,10 +6,7 @@ from scipy.stats import skew, kurtosis
 df = pd.read_csv("census.csv", sep=",")
 idades = df['age']
 
-idades = pd.DataFrame({
-
-
-})
+tabela_Idades = pd.DataFrame({'idade': idades})
 
 
 

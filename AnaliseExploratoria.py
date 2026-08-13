@@ -37,5 +37,27 @@ print ("O primeiro Quartil", PercentilNinety)
 print(f"A Variância é: {variancia:.2f}")
 print(f"O Desvio Padrão é: {desvioPadrao:.2f}")
 
+
+print("\n" + "="*40)
+print(" 📊 RELATÓRIO ESTATÍSTICO - IDADES")
+print("="*40)
+
+print("\n▶ MEDIDAS DE POSIÇÃO")
+print(f"  a) Média Aritmética : {mediaAritmetica:.2f}")
+print(f"  b) Média Harmônica  : {mediaHarmonica:.2f}")
+print(f"  c) Média Geométrica : {mediaGeometrica:.2f}")
+print(f"  d) Média Quadrática : {mediaQuadratica:.2f}")
+print(f"  e) Mediana (Q2)     : {mediana:.2f}")
+print(f"  f) Moda             : {moda}")
+
+print("\n▶ QUARTIS E PERCENTIS")
+print(f"  g) Quartis          : Q1 = {firstQuartil:.2f} | Q2 = {secondQuartil:.2f} | Q3 = {thirdQuartil:.2f}")
+print(f"  h) Percentis        : P5 = {percentilFive:.2f} | P10 = {PercentilTen:.2f} | P90 = {PercentilNinety:.2f}")
+
+print("\n▶ MEDIDAS DE DISPERSÃO")
+print(f"  i) Variância        : {variancia:.2f}")
+print(f"  j) Desvio Padrão    : {desvioPadrao:.2f}")
+
+print("\n" + "="*40)
 # print(df.head())
 # print(idades.head())

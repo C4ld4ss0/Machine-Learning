@@ -29,9 +29,29 @@ estilo_outliers = dict(markerfacecolor='red', marker='o', alpha=0.4, markeredgec
 plt.boxplot(idades, # Onde vai tirar os dados
             patch_artist=True, #Avisa que vai pintar
             tick_labels=['Idades do censo'], #Muda e põe um parâmetro
-            boxprops=dict(facecolor='#87CEFA', color='#4682B4'), #Pinta a caixa de azul, borda escura
+            boxprops=dict(facecolor="#34AAF4", color="#000000"), #Pinta a caixa de azul, borda escura
             medianprops=dict(color='red', linewidth=2), #Linha da mediana vermelha, tamanho da linha 2
-            flierprops=estilo_outliers) # muda os Outliers conforme o formato que fizemos linha 2
+            flierprops=estilo_outliers) # muda os Outliers conforme o formato que fizemos linha 26
+
+# Quartis / outliers
+q1 = idades.quantile(0.25)
+q3 = idades.quantile(0.75)
+
+# Limites dos quartis
+calcLim = q3 - q1
+limInf = q1 - (calcLim * 1.5)
+limSup = q3 + (calcLim * 1.5)
+
+# Contagem dos Outliers
+outEmbaixo = (idades < limInf).sum()
+outEmCima = (idades > limSup).sum()
+outTotal = outEmbaixo + outEmCima
+
+# Mostragem dos outliers
+if outTotal > 0:
+    outResul = f'Sim, apresenta {outTotal} outliers.'
+else:
+    outResul = f'Não apresenta nenhum outlier.'
 
 # Nomeação dos parâmetros
 plt.title("Distribuição das idades (Boxplot)", fontsize = 15) #Título, tamanho da fonte
@@ -49,9 +69,9 @@ obliquidade = skew(idades)
 obliResul = 'Não tem informação'
 
 # Comparadores da Obliquidade
-if obliquidade <= 0.3:
+if obliquidade >= 0.3:
     obliResul = 'Assimetria Positiva'
-elif obliquidade >= -0.3:
+elif obliquidade <= -0.3:
     obliResul = 'Assimetria Negativa'
 else:
     obliResul = 'Simétrica'
@@ -71,6 +91,7 @@ else:
 # Formatação para mostragem na tela
 obliText = f"Obliquidade é = {obliquidade: .4f} | {obliResul}"
 curText = f"Curtose é = {curtose: .4f} | {curResul}"
+outText = f"Outliers do box plot = {outTotal}"
 largPixel = 80 # Largura do texto
 
 # Mostragem da Obliquidade
@@ -86,4 +107,10 @@ print(f"""
 {'*' * largPixel}
 {('\033[1m'+ curText + '\033[0m').center(largPixel + 8)}
 {'*' * largPixel}
+""")
+
+print(f"""
+{'=' * largPixel}
+{('\033[1m'+ outText + '\033[0m').center(largPixel + 8)}
+{'=' * largPixel}
 """)

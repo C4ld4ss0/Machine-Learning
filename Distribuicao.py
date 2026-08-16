@@ -7,15 +7,17 @@ df = pd.read_csv("census.csv", sep=",") # leitor separa por vírgula
 idades = df['age'] # Limita a só ler a idade - AGE im inglês
 
 # Histograma
-tabela_Idades = pd.DataFrame({'idade': idades})
-plt.figure(figsize=(8,6))
-plt.hist(idades, bins = 10, edgecolor = 'black')
-plt.title('Distribuição de idade')
-plt.xlabel('idade')
-plt.ylabel('Frequência')
-plt.tight_layout()
-plt.savefig("Histograma")
-plt.clf()
+tabela_Idades = pd.DataFrame({'idade': idades}) # Faz o histograma
+plt.figure(figsize=(8,6)) # Decide o tamanho do gráfico
+
+#Formatação Histograma
+plt.hist(idades, bins = 10, edgecolor = 'black') # variável que contém os dados, intervalo dos dados "de 10 em 10 anos", cor da borda
+plt.title('Distribuição de idade') # título do Histograma
+plt.xlabel('idade') # Nome do eixo X
+plt.ylabel('Frequência') # nome do eixo Y
+plt.tight_layout() # Diminui o farmato da imagem
+plt.savefig("Histograma") # Salva o histograma como imagem
+plt.clf() # Limpa a plt para a próxima imagem
 
 # Box plot
 plt.figure(figsize=(8,6))
@@ -44,8 +46,37 @@ plt.clf() # Apaga as alterações para liberar e fazer o próximo
 
 # Obliquidade
 obliquidade = skew(idades)
+obliResul = 'Não tem informação'
 
+# Comparadores da Obliquidade
+if obliquidade < 0.3:
+            obliResul = 'Assimetria Positiva'
+elif obliquidade > -0.3:
+            obliResul = 'Assimetria Negativa'
+else:
+            obliResul = 'Simétrica'
+
+# Curtose
 curtose = kurtosis(idades)
+curResul
 
-print("Obliquidade é: ", obliquidade)
-print("Curtose é: ", curtose)
+# Comparadores da Curtose
+
+
+
+
+# Formatação para mostragem na tela
+curText = f"Obliquidade é = {obliResul}"
+largPixel = 100 # Largura do texto
+
+print(f"""
+{'-' * largPixel}
+{('\033[1m' + curText + '\033[0m').center(largPixel + 8)}
+{'-' * largPixel}
+""")
+
+
+
+
+
+

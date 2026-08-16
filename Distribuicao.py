@@ -49,34 +49,42 @@ obliquidade = skew(idades)
 obliResul = 'Não tem informação'
 
 # Comparadores da Obliquidade
-if obliquidade < 0.3:
-            obliResul = 'Assimetria Positiva'
-elif obliquidade > -0.3:
-            obliResul = 'Assimetria Negativa'
+if obliquidade <= 0.3:
+    obliResul = 'Assimetria Positiva'
+elif obliquidade >= -0.3:
+    obliResul = 'Assimetria Negativa'
 else:
-            obliResul = 'Simétrica'
+    obliResul = 'Simétrica'
 
 # Curtose
 curtose = kurtosis(idades)
-curResul
+curResul = "Não temos dados"
 
 # Comparadores da Curtose
-
-
-
+if curtose >= 0.1:
+    curResul = 'Mais concentrada (Leptocúrtica)'
+elif curtose <= -0.1:
+    curResul = 'Mais achatada (Platicúrtica)'
+else:
+    curResul = 'Próxima da normal (Mesocúrtica)'
 
 # Formatação para mostragem na tela
-curText = f"Obliquidade é = {obliResul}"
-largPixel = 100 # Largura do texto
+obliText = f"Obliquidade é = {obliResul}"
+curText = f"Curtose é = {curResul}"
+largPixel = 80 # Largura do texto
 
+# Mostragem da Obliquidade
 print(f"""
 {'-' * largPixel}
-{('\033[1m' + curText + '\033[0m').center(largPixel + 8)}
+{('\033[1m' + obliText + '\033[0m').center(largPixel + 8)}                   
 {'-' * largPixel}
 """)
+ #\033[1m ativa o negrito, põe o texto, \033[0 desativa o negrito 
+ # .center centraliza e (usa o tamanho estipulado para centralizar)
 
-
-
-
-
-
+print(f"""
+{'*' * largPixel}
+{('\033[1m'+ curText + '\033[0m').center(largPixel + 8)}
+{curtose.center(largPixel)}
+{'*' * largPixel}
+""")

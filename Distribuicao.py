@@ -69,8 +69,8 @@ else:
     curResul = 'Próxima da normal (Mesocúrtica)'
 
 # Formatação para mostragem na tela
-obliText = f"Obliquidade é = {obliResul}"
-curText = f"Curtose é = {curResul}"
+obliText = f"Obliquidade é = {obliquidade: .4f} | {obliResul}"
+curText = f"Curtose é = {curtose: .4f} | {curResul}"
 largPixel = 80 # Largura do texto
 
 # Mostragem da Obliquidade
@@ -85,6 +85,5 @@ print(f"""
 print(f"""
 {'*' * largPixel}
 {('\033[1m'+ curText + '\033[0m').center(largPixel + 8)}
-{curtose.center(largPixel)}
 {'*' * largPixel}
 """)

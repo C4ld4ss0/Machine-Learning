@@ -15,19 +15,19 @@ df = pd.DataFrama(data)
 print("--- Dataset Original ---")
 print(df)
 
-newData = pd.dataFrame({
+new_data = pd.dataFrame({
   'ID_Aluno': [7, 8, 9],
     'Curso': ['Computação', 'Engenharia', 'Direito'],
     'Nivel_Satisfacao': ['Alto', 'Baixo', 'Medio'],
     'Horas_Estudo': [16.0, 5.0, 9.0],
     'Nota_Final': [9.8, 4.5, 6.5]
 })
-df = pd.concat ([df, newData], ignoreIndex = True)
+df = pd.concat ([df, new_data], ignore_index = True)
 
 print("\n --- Dataset após 3 novas instâncias ---")
 print(df)
 
-dfEncoded = pd.getDummies(df, columns=['curso'], dtype=int)
+df_encoded = pd.getDummies(df, columns=['curso'], dtype=int)
 
 print("\n ---Dataset com One-Hot Encoding ---")
 print(df_encoded)

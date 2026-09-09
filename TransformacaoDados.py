@@ -47,7 +47,7 @@ plt.title('Histograma - Horas de Estudo')
 plt.subplot(1,2,2)
 sns.boxplot(y=df['Horas_Estudo'], color='#34AAF4')
 plt.title('Boxplot - Horas de Estudo')
-plt.savefig('Analise_Univariada.png')
+plt.savefig('imagens/Analise_Univariada.png')
 plt.clf()
 
 simetrico = np.random.normal(loc=50, scale=5, size=1000)
@@ -70,7 +70,7 @@ df['Idade'] = [20, 22, 19, 21, 23, 20, 24, 19, 21]
 colunas_numericas = ['Horas_Estudo', 'Nota_Final', 'Frequencia', 'Idade']
 
 sns.pairplot(df[colunas_numericas])
-plt.savefig('Matriz_Dispersao.png')
+plt.savefig('imagens/Matriz_Dispersao.png')
 plt.clf()
 
 print("\n--- Matriz de Correlação ---")

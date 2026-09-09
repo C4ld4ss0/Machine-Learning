@@ -45,7 +45,7 @@ plt.xlabel('Horas de Estudo')
 plt.ylabel('Nota da Prova')
 plt.grid(axis='both', linestyle='--', alpha=0.5)
 
-plt.savefig("Dispersao.png")
+plt.savefig("imagens/Dispersao.png")
 plt.clf()
 
 tabela_final = df.agg(['mean', 'median', 'var', 'std', 'min', 'max']).T

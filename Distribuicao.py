@@ -16,7 +16,7 @@ plt.title('Distribuição de idade') # título do Histograma
 plt.xlabel('idade') # Nome do eixo X
 plt.ylabel('Frequência') # nome do eixo Y
 plt.tight_layout() # Diminui o farmato da imagem
-plt.savefig("Histograma") # Salva o histograma como imagem
+plt.savefig("imagens/Histograma") # Salva o histograma como imagem
 plt.clf() # Limpa a plt para a próxima imagem
 
 # Box plot
@@ -61,7 +61,7 @@ plt.ylabel("Idade em anos", fontsize = 12) # 2ndo título vertical, tamanho da f
 plt.grid(axis='y', linestyle='--', alpha=0.5) #axis Y vai fazer com que durante a divisão do grid as linhas sejam '--' e com 0.5 de opacidade
 
 #Salvamento e mostragem o Boxplot
-plt.savefig("Box_Plot.png")
+plt.savefig("imagens/Box_Plot.png")
 plt.clf() # Apaga as alterações para liberar e fazer o próximo
 
 # Obliquidade

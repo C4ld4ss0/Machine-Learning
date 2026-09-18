@@ -1,0 +1,66 @@
+Exercício sobre Avaliação de Classificadores
+
+a) Total de exemplos avaliados em cada classificador:
+(Fórmula: VP + FP + FN + VN)
+Classificador 1: 25 + 10 + 45 + 60 = 140 exemplos
+Classificador 2: 70 + 20 + 15 + 30 = 135 exemplos
+Classificador 3: 70 + 95 + 30 + 5 = 200 exemplos
+
+b) Métricas calculadas para cada classificador:
+CLASSIFICADOR 1:
+Acurácia: (25 + 60) / 140 = 0,607 (60,7%)
+Erro: (10 + 45) / 140 = 0,393 (39,3%)
+Precisão: 25 / (25 + 10) = 0,714 (71,4%)
+Recall: 25 / (25 + 45) = 0,357 (35,7%)
+Especificidade: 60 / (60 + 10) = 0,857 (85,7%)
+TFP (Falso Positivo): 10 / 70 = 0,143 (14,3%)
+TFN (Falso Negativo): 45 / 70 = 0,643 (64,3%)
+F1-score: 2 * (0,714 * 0,357) / (0,714 + 0,357) = 0,476 (47,6%)
+
+CLASSIFICADOR 2:
+Acurácia: (70 + 30) / 135 = 0,741 (74,1%)
+Erro: (20 + 15) / 135 = 0,259 (25,9%)
+Precisão: 70 / (70 + 20) = 0,778 (77,8%)
+Recall: 70 / (70 + 15) = 0,824 (82,4%)
+Especificidade: 30 / (30 + 20) = 0,600 (60,0%)
+TFP (Falso Positivo): 20 / 50 = 0,400 (40,0%)
+TFN (Falso Negativo): 15 / 85 = 0,176 (17,6%)
+F1-score: 2 * (0,778 * 0,824) / (0,778 + 0,824) = 0,800 (80,0%)
+
+CLASSIFICADOR 3:
+Acurácia: (70 + 5) / 200 = 0,375 (37,5%)
+Erro: (95 + 30) / 200 = 0,625 (62,5%)
+Precisão: 70 / (70 + 95) = 0,424 (42,4%)
+Recall: 70 / (70 + 30) = 0,700 (70,0%)
+Especificidade: 5 / (5 + 95) = 0,050 (5,0%)
+TFP (Falso Positivo): 95 / 100 = 0,950 (95,0%)
+TFN (Falso Negativo): 30 / 100 = 0,300 (30,0%)
+F1-score: 2 * (0,424 * 0,700) / (0,424 + 0,700) = 0,528 (52,8%)
+
+c) Tabela Comparativa:
+Métrica         Classificador 1     Classificador 2     Classificador 3
+Total exemplos  140                 135                 200
+Acurácia        60,7%               74,1%               37,4%
+Erro            39,3%               25,9%               62,5%
+Precisão        71,4%               77,8%               42,4%
+Recall          35,7%               82,4%               70,0%
+Especialidade   85,7%               60,0%               5,0%
+TFP             14,3%               40,0%               95,0%
+TFN             64,3%               17,6%               30,0%
+F1-score        47,6%               80,0%               52,8%
+
+d) Interpretação dos Resultados:
+
+Classificador 1: É um modelo muito conservador. Tem excelente Especificidade (85,7%), o que significa que é ótimo em identificar corretamente os casos negativos. No entanto, é péssimo em detectar casos positivos, apresentando um Recall muito baixo (35,7%) e perdendo muitos exemplos da classe de interesse.
+Classificador 2: É o melhor modelo no geral. Apresenta um ótimo equilíbrio entre precisão e recall (refletido no F1-score de 80%). Tem a maior Acurácia e a menor taxa de erro.
+Classificador 3: É um modelo que gera muitos "alarmes falsos". Embora tenha um bom Recall (70%), ele classifica quase tudo como positivo, o que destrói a sua Precisão (42,4%) e gera uma Taxa de Falsos Positivos gigantesca (95%).
+
+
+e) e f) Qual o melhor classificador e Justificativas:
+
+No uso geral: Classificador 2.
+Justificativa: Apresenta o melhor equilíbrio global das métricas, possuindo a maior Acurácia (74,1%) e o maior F1-score (80,0%), que harmoniza Precisão e Recall.
+Em aplicações para evitar falsos positivos: Classificador 1.
+Justificativa: Possui a menor Taxa de Falsos Positivos (14,3%) e a maior Especificidade (85,7%), garantindo um alto índice de acerto quando prediz a classe negativa.
+Em aplicações onde é grave deixar de detectar casos positivos: Classificador 2.
+Justificativa: Possui a menor Taxa de Falsos Negativos (17,6%) e o maior Recall/Sensibilidade (82,4%), sendo o modelo mais capaz de encontrar os casos positivos reais sem disparar tantos alarmes falsos quanto o classificador 3.

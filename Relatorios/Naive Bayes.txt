@@ -1,0 +1,10 @@
+Questões 
+a) O desempenho foi de: "Acurácia: 0.9722".
+
+b) Como usamos 20% da amostra foram 35 vinhos.
+
+c) Houve 1 erro de classificação que deveria ser classe 1, mas foi classificado como classe 0. 
+
+d) São as probabilidades de um vinho pertencer em alguma das 3 classes, considerando o conjunto de 13 características.
+
+e) Para que possamos apontar quais as variáveis foram apresentadas no dataset
